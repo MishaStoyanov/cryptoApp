@@ -30,8 +30,8 @@ public class PriceChangeService {
                         new DecimalFormat("0.00000000000000000000").format(currentPrice);
 
                 telegramBot.sendMessage(currency.getChatId(), message);
-                currency.setPrice(currentPrice);
-                currencyRepository.save(currency);
+           /*     currency.setPrice(currentPrice);
+                currencyRepository.save(currency);*/
             }
         }
     }
