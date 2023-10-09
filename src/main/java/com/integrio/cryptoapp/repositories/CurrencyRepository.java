@@ -9,4 +9,5 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 public interface CurrencyRepository extends JpaRepository<Currency, Long> {
     void deleteAllByChatId(Long chatId);
+    Currency findCurrencyByChatIdAndAndSymbol(Long chatId, String symbol);
 }

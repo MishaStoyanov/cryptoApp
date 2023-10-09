@@ -28,7 +28,10 @@ public class PriceChangeService {
             if (Math.abs(priceChangePercent) > MIN_PERCENT_CHANGE) {
                 String message = "Price for " + currency.getSymbol() + " has changed by " + new DecimalFormat("0.000").format(priceChangePercent) + "%. Current price: " +
                         new DecimalFormat("0.00000000000000000000").format(currentPrice);
+
                 telegramBot.sendMessage(currency.getChatId(), message);
+                currency.setPrice(currentPrice);
+                currencyRepository.save(currency);
             }
         }
     }
